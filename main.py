@@ -43,7 +43,6 @@ async def biz_error_handler(request: Request, exc: BizError):
         content={"code": exc.code, "msg": exc.msg, "data": None},
     )
 
-
 @app.exception_handler(RequestValidationError)
 async def validation_error_handler(request: Request, exc: RequestValidationError):
     """把 Pydantic 的报错翻译成一句中文，避免直接抛 422 英文栈。"""
